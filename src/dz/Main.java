@@ -1,7 +1,7 @@
 package dz;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws WrongMarkValueException {
         var school = new School("МАËВНИК");
 
         var vanya = new Student("Иван Березуцкий");

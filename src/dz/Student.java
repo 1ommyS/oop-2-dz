@@ -1,21 +1,22 @@
 package dz;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Student implements Comparable<Student> {
     private final String name;
-    private ArrayList<Mark> marks = new ArrayList<>();
+    private List<Mark> marks = new ArrayList<>();
 
     public Student(String name) {
         this.name = name;
     }
 
-    public Student(String name, ArrayList<Mark> marks) {
+    public Student(String name, List<Mark> marks) {
         this.name = name;
         this.marks = marks;
     }
 
-    public ArrayList<Mark> getMarks() {
+    public List<Mark> getMarks() {
         return marks;
     }
 
@@ -27,7 +28,7 @@ public class Student implements Comparable<Student> {
         marks.add(mark);
     }
 
-    public void addMark(int value, String subjectName) {
+    public void addMark(int value, String subjectName) throws WrongMarkValueException {
         marks.add(new Mark(value, subjectName));
     }
 

@@ -1,10 +1,11 @@
 package dz;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class School {
     private final String name;
-    private ArrayList<SchoolClass> classes = new ArrayList<>();
+    private List<SchoolClass> classes = new ArrayList<>();
 
     public School(String name, ArrayList<SchoolClass> classes) {
         this.name = name;
@@ -15,7 +16,7 @@ public class School {
         return name;
     }
 
-    public ArrayList<SchoolClass> getClasses() {
+    public List<SchoolClass> getClasses() {
         return classes;
     }
 
@@ -25,20 +26,19 @@ public class School {
 
     public double getMean() {
         return classes.stream()
-                .flatMap(SchoolClass::getStudentsStream)
-                .mapToDouble(Student::getMean)
-                .reduce(0.0, Double::sum)
-                / classes.stream().map(SchoolClass::getStudentsCount).reduce(0L, Long::sum);
+                .flatMap(schoolClass -> schoolClass.getStudents().stream())
+                .reduce(0.0, (sum, student) -> sum + student.getMean(), Double::sum)
+                / classes.stream()
+                .reduce(0L, (sum, schoolClass) -> sum + schoolClass.getStudentsCount(), Long::sum);
     }
 
     public void addClass(SchoolClass schoolClass) {
         classes.add(schoolClass);
     }
 
-    public Student getBestStudent() {
-        if (classes.isEmpty()) throw new IllegalStateException("No students in this School");
+    public Student getBestStudent() throws IllegalStateException {
         return classes.stream()
-                .flatMap(SchoolClass::getStudentsStream)
-                .max(Student::compareTo).orElse(null);
+                .flatMap(schoolClass -> schoolClass.getStudents().stream())
+                .max(Student::compareTo).orElseThrow(() -> new IllegalStateException("Нет студентов в школе"));
     }
 }
