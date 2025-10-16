@@ -36,7 +36,7 @@ public class School {
         classes.add(schoolClass);
     }
 
-    public Student getBestStudent() throws IllegalStateException {
+    public Student getBestStudent() {
         return classes.stream()
                 .flatMap(schoolClass -> schoolClass.getStudents().stream())
                 .max(Student::compareTo).orElseThrow(() -> new IllegalStateException("Нет студентов в школе"));

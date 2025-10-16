@@ -4,7 +4,7 @@ public class Mark {
     private final int value;
     private final String subjectName;
 
-    public Mark(int value, String subjectName) throws WrongMarkValueException {
+    public Mark(int value, String subjectName) {
         if (value < 2 || value > 5) throw new WrongMarkValueException("че-то ты зажрался дружочек");
         this.value = value;
         this.subjectName = subjectName;

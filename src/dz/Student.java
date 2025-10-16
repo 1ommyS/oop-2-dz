@@ -28,7 +28,7 @@ public class Student implements Comparable<Student> {
         marks.add(mark);
     }
 
-    public void addMark(int value, String subjectName) throws WrongMarkValueException {
+    public void addMark(int value, String subjectName) {
         marks.add(new Mark(value, subjectName));
     }
 
