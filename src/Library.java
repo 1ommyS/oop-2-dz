@@ -38,11 +38,9 @@ public class Library {
             if (book != null && book.getTitle().equals(title)) {
                 System.out.println("взяли книгу " + title);
                 return book;
-            } else {
-                System.out.println("такой книги нету");
-                return null;
             }
         }
+        System.out.println("такой книги нету");
         return null;
     }
 
