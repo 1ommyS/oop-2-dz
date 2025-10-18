@@ -38,8 +38,7 @@ public class Library {
             if (book != null && book.getTitle().equals(title)) {
                 System.out.println("взяли книгу " + title);
                 return book;
-            }
-            else {
+            } else {
                 System.out.println("такой книги нету");
                 return null;
             }
@@ -55,8 +54,8 @@ public class Library {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Состояние библиотеки" + "\n" + "Стеллаж 1: " + "\n" + racks[0] + "\n" +
-                "Стеллаж 2: " + "\n" + racks[1]);
+        sb.append("Состояние библиотеки").append("\n").append("Стеллаж 1: ").append("\n").append(racks[0])
+                .append("\n").append("Стеллаж 2: ").append("\n").append(racks[1]);
 
         return sb.toString();
     }

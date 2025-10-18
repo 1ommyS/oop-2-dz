@@ -44,8 +44,8 @@ public class Rack {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Состояние полок" + "\n" + "полка 1: " + "\n" + shelves[0] + "\n" +
-                "полка 2: " + "\n" + shelves[1]);
+        sb.append("Состояние полок").append("\n").append("полка 1: ").append("\n").
+                append(shelves[0]).append("\n").append("полка 2: ").append("\n").append(shelves[1]);
 
         return sb.toString();
     }

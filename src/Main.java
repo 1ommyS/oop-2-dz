@@ -2,16 +2,16 @@ public class Main {
     public static void main(String[] args) {
 
 
-        Book book1 = new Book("1 книга", "1 автор", 1);
-        Book book2 = new Book("2 книга", "2 автор", 1);
-        Book book3 = new Book("3 книга", "3 автор", 1);
-        Book book4 = new Book("4 книга", "4 автор", 1);
-        Book book5 = new Book("5 книга", "5 автор", 1);
-        Book book6 = new Book("6 книга", "6 автор", 1);
-        Book book7 = new Book("7 книга", "7 автор", 1);
-        Book book8 = new Book("8 книга", "8 автор", 1);
-        Book book9 = new Book("9 книга", "9 автор", 1);
-        Book book10 = new Book("10 книга", "10 автор", 1);
+        Book book1 = new Book("Норвежский лес", "Харуки Мураками", 1);
+        Book book2 = new Book("Возлюби ближнего своего", "Эрих Мария Ремарк", 1);
+        Book book3 = new Book("Тени в раю", "Эрих Мария Ремарк", 1);
+        Book book4 = new Book("Слушай песню ветра", "Харуки Мураками", 1);
+        Book book5 = new Book("Шантарам", "Грегори Дэвид Робертс", 1);
+        Book book6 = new Book("После", "автор?", 1);
+        Book book7 = new Book("Шрек", "Навсегда", 1);
+        Book book8 = new Book("Море изобилия", "Юкио Мисима", 1);
+        Book book9 = new Book("Комната мертвых", "Франк Тилье", 1);
+        Book book10 = new Book("Форсаж", "Вин дизель", 1);
 
         Shelf shelf1 = new Shelf(new Book[]{book1, book2, book10});
         Shelf shelf2 = new Shelf(new Book[]{book3, book4, book9});
@@ -41,8 +41,11 @@ public class Main {
 
         //System.out.println(rack1.findBookOnRack("1 книга"));
 
-        library.findBookOnLibrary("4 книга");
+        library.findBookOnLibrary("Шантарам");
+        library.findBookOnLibrary("Шрек");
+        library.findBookOnLibrary("Море изобилия");
+        library.findBookOnLibrary("Форсаж");
 
-        library.takeTheBook("1 книга324");
+        library.takeTheBook("123книга");
     }
 }
