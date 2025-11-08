@@ -28,16 +28,6 @@ public class Shelf {
         return books.length;
     }
 
-   /* public int getFirstBookWithTitle(String title) {
-        for (int i = 0; i < books.length; i++) {
-            if (books[i] != null && books[i].getTitle().equals(title)){
-                return i;
-            }
-        }
-
-        return -1;
-    }*/
-
     @Override
     public String toString() {
         return "Полка[" + Arrays.toString(books) + ']';

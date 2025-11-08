@@ -1,5 +1,5 @@
 public class Library {
-    Rack[] racks;
+    private Rack[] racks;
 
     public Library(Rack[] racks) {
         this.racks = racks;
