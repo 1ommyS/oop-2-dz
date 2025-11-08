@@ -18,20 +18,17 @@ public class Rack {
     }
 
     public int totalBooks() {
-        int total = 0;
-
-        for (Shelf shelf : shelves) {
-            total += shelf.getBooksLength();
+        int result = 0;
+        for (var shelf : shelves) {
+            result += shelf.getBooksLength();
         }
 
-        return total;
+        return result;
     }
 
     public int findFirstByTitle(String title) {
         for (int i = 0; i < shelves.length; i++) {
-            var shelf = shelves[i];
-
-            if (shelf.indexOfByTitle(title) != -1) return i;
+            if (shelves[i] != null && shelves[i].indexOfByTitle(title) != -1) return i;
         }
 
         return -1;
