@@ -6,30 +6,37 @@ public class Library {
     }
 
     public int racksCount() {
-        return racks.length;
+        int counter = 0;
+        for (var rack : racks) {
+            counter++;
+        }
+
+        return counter;
     }
 
     public Rack getRack(int index) {
-        if (index < 0 || index >= racks.length) {
-            return null;
+        for (int i = 0; i < racks.length; i++) {
+            if (racks[i] != null && i == index) return racks[i];
         }
 
-        return racks[index];
+        return null;
     }
 
-    public int totalBooks() {
-        int totalBooks = 0;
-        for (var rack : racks) totalBooks += rack.totalBooks();
+    public int totalBooks(){
+        int result = 0;
+        for(var rack : racks){
+           result += rack.totalBooks();
+        }
 
-        return totalBooks;
+        return result;
     }
 
-    public Book findByTitle(String title) {
-        for (var rack : racks) {
-            for (var shelf : rack.getShelves()) {
-                Book book = shelf.findBookByTitle(title);
+    public Book findByTitle(String title){
+        for(var rack : racks){
+            if (rack != null && rack.findFirstByTitle(title) != -1){
+               Shelf shelf = rack.getShelf(rack.findFirstByTitle(title));
+               return shelf.get(shelf.indexOfByTitle(title));
 
-                if (book != null) return book;
             }
         }
 
