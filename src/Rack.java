@@ -1,20 +1,20 @@
 public class Rack {
-    private Shelf[] shelf;
+    private Shelf[] shelfes;
 
     Rack(Shelf[] shelf) {
-        this.shelf = shelf;
+        this.shelfes = shelfes;
     }
 
     //    Геттер
     public Shelf[] getShelf() {
-        return shelf;
+        return shelfes;
     }
 
 
     //    Всего книг на полках
     public int totalBooks() {
         int total = 0;
-        for (Shelf currentShelf : shelf) {
+        for (Shelf currentShelf : shelfes) {
             total += currentShelf.getBookCount();
         }
         return total;
@@ -22,11 +22,10 @@ public class Rack {
 
     //    Количество полок
     public int totalShelves() {
-        int totalShelves = 0;
-        for (Shelf currentShelf : shelf) {
-            totalShelves =+ shelf.length;
+        if (shelfes.length == 0) {
+            return 0;
         }
-        return totalShelves;
+        return shelfes.length;
     }
 
     //    Поиск книги по названию (возвращает индекс)
@@ -35,7 +34,7 @@ public class Rack {
             return -1;
         }
 
-        for (Shelf currentShelf : shelf) {
+        for (Shelf currentShelf : shelfes) {
             Book[] booksTitle = currentShelf.getBooks();
 
             for (int bookIndex = 0; bookIndex < booksTitle.length; bookIndex++) {
@@ -55,7 +54,7 @@ public class Rack {
             return null;
         }
 
-        for (Shelf currentShelf : shelf) {
+        for (Shelf currentShelf : shelfes) {
             Book[] books = currentShelf.getBooks();
 
             for (Book currentBook : books) {
@@ -69,15 +68,15 @@ public class Rack {
 
     @Override
     public String toString() {
-        if(shelf == null || shelf.length == 0) {
+        if(shelfes == null || shelfes.length == 0) {
             return "Rack пустой";
         }
 
         StringBuilder sb = new StringBuilder();
-        sb.append("Rack (количество полок: ").append(this.shelf.length).append(")\n");
+        sb.append("Rack (количество полок: ").append(this.shelfes.length).append(")\n");
 
-        for (int i = 0; i < shelf.length; i++) {
-            Shelf currentShelf = shelf[i];
+        for (int i = 0; i < shelfes.length; i++) {
+            Shelf currentShelf = shelfes[i];
             sb.append("Полка - ").append(i + 1).append(":\n");
 
             if (currentShelf == null) {
