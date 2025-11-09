@@ -1,38 +1,69 @@
 public class Library {
     private Rack[] racks;
 
-    public Library(Rack[] racks) {
+    Library(Rack[] racks) {
         this.racks = racks;
     }
 
+    //    Получаем количество стелажей
     public int racksCount() {
-        return racks.length;
+        int totalRacks = 0;
+        for (Rack currentRack : racks) {
+            totalRacks += racks.length;
+        }
+        return totalRacks;
     }
 
-    public Rack getRack(int index) {
+    //    Получаем стилаж по индексу
+    public Rack getRacks(int index) {
         if (index < 0 || index >= racks.length) {
             return null;
         }
-
         return racks[index];
     }
 
-    public int totalBooks() {
-        int totalBooks = 0;
-        for (var rack : racks) totalBooks += rack.totalBooks();
-
-        return totalBooks;
+    //    Получение общего чила книг
+    public String totalBooksRacks() {
+        StringBuilder sb = new StringBuilder();
+        int totalRacks = 0;
+        for (Rack currentRack : racks) {
+            totalRacks += currentRack.totalBooks();
+        }
+        sb.append("Всего книг: ").append(totalRacks);
+        return sb.toString();
     }
 
-    public Book findByTitle(String title) {
-        for (var rack : racks) {
-            for (var shelf : rack.getShelves()) {
-                Book book = shelf.findBookByTitle(title);
-
-                if (book != null) return book;
+    //    Поиск книги по наименованию
+    public Book findBook(String title) {
+        for (Rack currentRack : racks) {
+            Book foundBook = currentRack.findBookByTitle(title);
+            if (foundBook != null) {
+                return foundBook;
             }
         }
-
         return null;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("\n").append("Количество стелажей: ").append(racks.length).append('\n');
+
+        int totalRacks = 0;
+        int totalBooks = 0;
+        for (Rack currentRack : racks) {
+            totalRacks += currentRack.totalShelves();
+
+            Shelf[] shelf =  currentRack.getShelf();
+
+            for (Shelf currentShelf : shelf) {
+                totalBooks += currentShelf.getBookCount();
+            }
+
+        }
+        sb.append("\n").append("Количество полок: ").append(totalRacks).append('\n');
+        sb.append("\n").append("Количество книг: ").append(totalBooks).append('\n');
+
+        return sb.toString();
     }
 }
