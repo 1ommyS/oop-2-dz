@@ -1,7 +1,7 @@
 public class Book {
     private String title;
     private String author;
-    private int pages;
+    int pages;
 
     public Book(String title, String author, int pages) {
         this.title = title;
@@ -23,10 +23,8 @@ public class Book {
 
     @Override
     public String toString() {
-        return "Book{" +
-                "title='" + title + '\'' +
-                ", author='" + author + '\'' +
-                ", pages=" + pages +
-                '}';
+
+        return "\nTitle: " + title + "\nAuthor: " + author + "\nPages: " + pages;
+
     }
 }

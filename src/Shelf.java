@@ -1,46 +1,51 @@
-import java.util.Arrays;
-
 public class Shelf {
-    private Book[] books;
+    private Book[] book;
 
-    public Shelf(Book[] books) {
-        this.books = books;
+    public Shelf(Book[] book) {
+        this.book = book;
     }
 
+    //    Получить индекс книги по названию
     public int indexOfByTitle(String title) {
-        for (int i = 0; i < books.length; i++) {
-            if (books[i] != null && books[i].getTitle().equals(title))
+        if (title == null) {
+            return -1;
+        }
+
+        for (int i = 0; i < book.length; i++) {
+            if (book[i].getTitle().equals(title)) {
                 return i;
+            }
         }
 
         return -1;
     }
 
-    public Book findBookByTitle(String title) {
-        for (var book : books) {
-            if (book.getTitle().equals(title)) return book;
-        }
-
-        return null;
+    //    Получить количество книг
+    public int getBookCount() {
+        return this.book.length;
     }
 
 
-    public int getBooksLength() {
-        return books.length;
+    //   Возвращает массив книг, хранящийся на полке
+    public Book[] getBooks() {
+        return this.book;
     }
 
+    //    Возвращает книгу по индексу
     public Book get(int index) {
-        if (index < 0 || index >= books.length) {
+        if (index < 0 || index >= book.length) {
             return null;
         }
-
-        return books[index];
+        return book[index];
     }
 
     @Override
     public String toString() {
-        return "Shelf{" +
-                "books=" + Arrays.toString(books) +
-                '}';
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < book.length; i++) {
+            result.append(book[i].toString());
+        }
+        return result.toString();
     }
 }
+
