@@ -13,8 +13,7 @@ public class Main {
                 new Book("1984", "Джордж Оруэлл", 328)
         };
 
-        Shelf[] shelf = {git add .
-                git commit -m "твой комментарий"
+        Shelf[] shelf = {
                 new Shelf(books1),
         };
 
